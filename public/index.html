@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing App - Updated Version</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="auth-section" class="auth-section">
+        <h1>Welcome to Bill Generator</h1>
+        <div id="loginForm" class="auth-form">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Your Existing App Content -->
+    <div id="app" class="hidden">
+        <h1>Bill Generator</h1>
+        <div class="item-entry">
+            <input type="text" id="itemName" placeholder="Item Name">
+            <input type="text" id="itemSize" placeholder="Size">
+            <input type="number" id="itemQty" placeholder="Quantity">
+            <input type="number" id="itemPrice" placeholder="Price per Item">
+            <button onclick="addItem()">Add Item</button>
+        </div>
+        <div>
+            <h3>Customer Details</h3>
+            <label for="customerCompanyName">Customer's Company Name:</label>
+            <input type="text" id="customerCompanyName" placeholder="Customer's Company Name">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" placeholder="Customer Name">
+            <label for="customerAddress">Address:</label>
+            <input type="text" id="customerAddress" placeholder="Customer Address">
+            <label for="partyPhone">Party Phone:</label>
+            <input type="text" id="partyPhone" placeholder="Enter Party Phone">
+        </div>
+        <div class="advance-payment">
+            <label for="advanceAmount">Advance Payment:</label>
+            <input type="number" id="advanceAmount" placeholder="Enter Advance Amount" oninput="updateTotalWithAdvance()">
+        </div>
+        <table id="billTable" border="1">
+            <thead>
+                <tr>
+                    <th>SL NO</th>
+                    <th>Item</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="emptyRow">
+                    <td colspan="7" style="text-align: center; color: gray;">No items added yet.</td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="openPDFModal()">Download PDF</button>
+        <h2>Total: <span id="totalAmount">0</span></h2>
+        <button onclick="logout()" style="background-color: #dc3545;">Logout</button>
+    </div>
+
+    <!-- Your Existing Modals -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Edit Item</h2>
+            <label for="editItemName">Item Name:</label>
+            <input type="text" id="editItemName" placeholder="Item Name">
+            <label for="editItemSize">Size:</label>
+            <input type="text" id="editItemSize" placeholder="Size">
+            <label for="editItemQty">Quantity:</label>
+            <input type="number" id="editItemQty" placeholder="Quantity">
+            <label for="editItemPrice">Price per Item:</label>
+            <input type="number" id="editItemPrice" placeholder="Price per Item">
+            <button onclick="saveEdit()">Save Edit</button>
+        </div>
+    </div>
+    <div id="pdfOptionsModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePDFModal()">&times;</span>
+            <h2>Select Paper Size</h2>
+            <div class="options">
+                <label>
+                    <input type="radio" name="paperSize" value="a4" checked>
+                    A4 Size
+                </label>
+                <label>
+                    <input type="radio" name="paperSize" value="letter">
+                    Letter Size
+                </label>
+                <label>
+                    <input type="radio" name="paperSize" value="a5">
+                    A5 Size
+                </label>
+            </div>
+            <button onclick="confirmPDF()">Confirm</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
