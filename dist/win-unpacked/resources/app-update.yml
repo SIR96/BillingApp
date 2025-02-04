@@ -1,0 +1,4 @@
+owner: SIR96
+repo: billing-app
+provider: github
+updaterCacheDirName: billing-app-updater

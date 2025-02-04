@@ -1,0 +1,8 @@
+version: 1.0.0
+files:
+  - url: BillingApp-Setup-1.0.0.exe
+    sha512: VlssP4JWPE2LWd7xG7I0fIsyIZ9422IBCR8nwIiNZhPiE0KczFAoeSGCC24MtskShXmww0k2TJjMIvtufgRwqg==
+    size: 433051128
+path: BillingApp-Setup-1.0.0.exe
+sha512: VlssP4JWPE2LWd7xG7I0fIsyIZ9422IBCR8nwIiNZhPiE0KczFAoeSGCC24MtskShXmww0k2TJjMIvtufgRwqg==
+releaseDate: '2025-02-04T13:44:35.661Z'
