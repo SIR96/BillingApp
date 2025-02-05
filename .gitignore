@@ -1,0 +1,9 @@
+# Ignore built files and node_modules
+dist/
+installer/
+node_modules/
+*.exe
+*.msi
+*.nupkg
+*.asar
+
